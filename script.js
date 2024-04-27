@@ -1,13 +1,15 @@
 const enviarBtn = document.querySelector('.enviar');
 const fileInput = document.querySelector('.fileInput');
 const searchInput = document.querySelector('.tagName');
-
+const resultDiv = document.querySelector('.resultados');
 const resultConsInic = document.querySelector('.consultasIniciais');
 const resultProcPrevent = document.querySelector('.procedimentosPreventivos');
 const resultEndoConclDentesP = document.querySelector('.dentesPermanentes');
 const resultProtesesUnitarias = document.querySelector('.protesesUnitarias');
 const resultRaspSupraGengHemi = document.querySelector('.raspagemSupra');
+const arrayResults = [resultConsInic, resultProcPrevent, resultEndoConclDentesP, resultProtesesUnitarias, resultRaspSupraGengHemi];
 
+//NOMES DAS TAGS
 /*
     consultasOdontoInic
     procedimentosPrevent
@@ -15,6 +17,14 @@ const resultRaspSupraGengHemi = document.querySelector('.raspagemSupra');
     protesesOdontoUnitarias
     raspSupraGengHemi
 */
+
+function copyNumber(index) {
+    navigator.clipboard.writeText(arrayResults[index].textContent);
+    $('.popup').toggleClass('show-popup');
+      setTimeout(function() {
+        $('.popup').toggleClass('show-popup');
+      }, 3000);
+}
 
 enviarBtn.addEventListener('click', () => {
     somarValoresDaTag();
@@ -83,6 +93,7 @@ fileInput.addEventListener('change', () => {
         resultProtesesUnitarias.textContent = totalProtesesUnitarias;
         resultRaspSupraGengHemi.textContent = totalRaspSupraGengHemi;
 
+        resultDiv.style.display = 'block';
     };
 
     reader.readAsText(file); // Inicia a leitura do arquivo
@@ -119,3 +130,4 @@ function somarValoresDaTag() {
 
     reader.readAsText(file); // Inicia a leitura do arquivo
 }
+

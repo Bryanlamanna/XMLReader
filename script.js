@@ -8,6 +8,7 @@ const resultEndoConclDentesP = document.querySelector('.dentesPermanentes');
 const resultProtesesUnitarias = document.querySelector('.protesesUnitarias');
 const resultRaspSupraGengHemi = document.querySelector('.raspagemSupra');
 const arrayResults = [resultConsInic, resultProcPrevent, resultEndoConclDentesP, resultProtesesUnitarias, resultRaspSupraGengHemi];
+resultDiv.style.display = 'none';
 
 //NOMES DAS TAGS
 /*
